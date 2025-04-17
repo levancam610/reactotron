@@ -1,20 +1,22 @@
 import React from "react"
-import { HashRouter as Router, Route, Routes } from "react-router-dom"
+import { Route, HashRouter as Router, Routes } from "react-router-dom"
 import styled from "styled-components"
 
-import SideBar from "./components/SideBar"
 import Footer from "./components/Footer"
+import SideBar from "./components/SideBar"
 import RootContextProvider from "./contexts"
 import RootModals from "./RootModals"
 
-import Home from "./pages/home"
-import Timeline from "./pages/timeline"
-import Subscriptions from "./pages/state/Subscriptions"
-import Snapshots from "./pages/state/Snapshots"
-import Overlay from "./pages/reactNative/Overlay"
-import Storybook from "./pages/reactNative/Storybook"
+import ConsoleLog from "./pages/consoleLog"
 import CustomCommands from "./pages/customCommands"
 import Help from "./pages/help"
+import Home from "./pages/home"
+import Network from "./pages/network"
+import Overlay from "./pages/reactNative/Overlay"
+import Storybook from "./pages/reactNative/Storybook"
+import Snapshots from "./pages/state/Snapshots"
+import Subscriptions from "./pages/state/Subscriptions"
+import Timeline from "./pages/timeline"
 
 const AppContainer = styled.div`
   position: absolute;
@@ -55,6 +57,12 @@ function App() {
 
                 {/* Timeline */}
                 <Route path="/timeline" element={<Timeline />} />
+
+                {/* Network */}
+                <Route path="/network" element={<Network />} />
+
+                {/* Console Log */}
+                <Route path="/console-log" element={<ConsoleLog />} />
 
                 {/* State */}
                 <Route path="/state/subscriptions" element={<Subscriptions />} />

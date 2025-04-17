@@ -16,5 +16,20 @@ module.exports = function (config) {
       ...config.output,
       hashFunction: "sha256",
     },
+    module: {
+      ...config.module,
+      rules: [
+        ...(config.module?.rules || []),
+        {
+          test: /\.js$/,
+          use: {
+            loader: 'babel-loader',
+            options: {
+              plugins: ['@babel/plugin-transform-optional-chaining']
+            }
+          }
+        }
+      ]
+    }
   }
 }

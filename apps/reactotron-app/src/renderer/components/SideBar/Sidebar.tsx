@@ -1,19 +1,21 @@
 import React from "react"
-import {
-  MdReorder,
-  MdAssignment,
-  MdPhoneIphone,
-  MdLiveHelp,
-  MdWarning,
-  MdOutlineMobileFriendly,
-  MdMobiledataOff,
-} from "react-icons/md"
 import { FaMagic } from "react-icons/fa"
+import {
+  MdAssignment,
+  MdLiveHelp,
+  MdMobiledataOff,
+  MdNetworkWifi,
+  MdOutlineMobileFriendly,
+  MdOutlineTv,
+  MdPhoneIphone,
+  MdReorder,
+  MdWarning
+} from "react-icons/md"
 import styled from "styled-components"
 
-import SideBarButton from "../SideBarButton"
-import { reactotronLogo } from "../../images"
 import { ServerStatus } from "../../contexts/Standalone/useStandalone"
+import { reactotronLogo } from "../../images"
+import SideBarButton from "../SideBarButton"
 
 interface SideBarContainerProps {
   $isOpen: boolean
@@ -57,7 +59,11 @@ function SideBar({ isOpen, serverStatus }: { isOpen: boolean; serverStatus: Serv
   return (
     <SideBarContainer $isOpen={isOpen}>
       <SideBarButton image={reactotronLogo} path="/" text="Home" hideTopBar />
+      <SideBarButton icon={MdOutlineTv} path="/console-log" text="Console Log" />
+      <SideBarButton icon={MdNetworkWifi} path="/network" text="Network" />
+      
       <SideBarButton icon={MdReorder} path="/timeline" text="Timeline" />
+
       <SideBarButton
         icon={MdAssignment}
         path="/state/subscriptions"

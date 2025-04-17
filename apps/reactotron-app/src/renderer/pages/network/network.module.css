@@ -1,0 +1,17 @@
+.ant-table-row>td {
+    font-size: 12px;
+    padding: 5px !important
+}
+
+.ant-table-thead>tr>th {
+    font-size: 12px;
+    /* padding: 5px !important */
+}
+
+.w-json-view-container {
+    overflow: auto;
+}
+
+.ant-btn-icon>svg {
+    font-size: 12px;
+}
