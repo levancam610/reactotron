@@ -23,6 +23,17 @@ const isValidJsonObject = (data: any) => {
  return typeof data === 'object' && data != null;
 }
 
+const parseJson = (data: any) => {
+  if (typeof data === 'string') {
+    try {
+      return JSON.parse(data)
+    } catch (error) {
+      return data
+    }
+  }
+  return data
+}
+
 const JsonViewCustom = ({data}) => {
     console.log("data", data)
   return <JsonView displayDataTypes={false} shortenTextAfterLength={100} value={typeof data === "string" ? JSON.parse(data) : data} />
@@ -363,8 +374,8 @@ const Network = () => {
                     ),
                     children: (
                       <div style={{backgroundColor: "#fff"}}>                          
-                        {isValidJsonObject(selectedRequest.payload.request.data) && (
-                          <JsonViewCustom data={selectedRequest.payload.request.data} />
+                        {isValidJsonObject(parseJson(selectedRequest.payload.request.data)) && (
+                          <JsonViewCustom data={parseJson(selectedRequest.payload.request.data)} />
                         )}
                       </div>
                     ),
